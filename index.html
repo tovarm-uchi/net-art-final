@@ -1,7 +1,9 @@
-<script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
 
 <script>
-  /* to give each gif properties to drop by and show */
+  
+  /* to give each gif properties to drop by and show 
+  */
   let cobra_kai;
   let disney_logo;
   let ducttape;
@@ -13,28 +15,28 @@
   let lisa_frank_angle;
   let gifs = [];
   let gifDrop = [];
-
-  class drop {
-    constructor(g) {
+  
+  class gifDrop {
+    constructor(g){
       this.x = random(windowWidth);
       this.y = 0;
       this.r = random(50, 100);
       this.gif = g;
-      this.yspeed = random(4, 10);
+      this.yspeed = random(4,10);
     }
-    fall() {
-      if (this.y < windowHeight) {
+    fall(){
+      if (this.y < windowHeight){
         this.y = this.y + this.yspeed;
       }
     }
-
-    show() {
-      image(this.gif, this.x, this.y.this.r, this.r);
+    
+    show(){
+     image(this.gif, this.x, this.y. this.r, this.r);
     }
 
   }
-
-  function preload() {
+  
+    function preload(){
     cobra_kai = loadImage('cobra_kai.gif');
     disney_logo = loadImage('disney_log.gif');
     ducttape = loadImage('ducttape.gif');
@@ -44,27 +46,79 @@
     jatp_logo = loadImage('jatp_logo.gif');
     lisa_frank_alien_car = loadImage('lisa_frank_alien_car.gif');
     lisa_frank_angle = loadImage('lisa_frank_angle.gif');
+    gifs = [cobra_kai, disney_logo, ducttape, elitelogo
+           gilmore_girls_lukes, jatp_logo,
+           lisafrank_alien_car, lisa_frank_angle];
   }
-
-  function setup() {
-    createCanvas(windowWidth, windowHeight, WEBGL);
-    gifs = [cobra_kai, disney_logo, ducttape, elitelogo,
-      gilmore_girls_lukes, jatp_logo,
-      lisafrank_alien_car, lisa_frank_angle
-    ];
-    for (let i = 0; i < 20; i++) {
-      let newgif = random(gifs)
-      let gdrop = new drop(newgif);
-      gifDrop.push(gdrop);
-    }
-    background(0);
-  }
+</script> -->
 
 
-  function draw() {
-    for (let i = 0; i < gifDrop.length; i++) {
-      gifDrop[i].fall();
-      gifDrop[i].show();
-    }
+<style>
+  body {
+    background-color: black;
+    background-image: url(staticbackground.gif);
   }
-</script>
+ 
+  img {
+    position: absolute;
+    animation: bounceInDown; 
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+  }
+
+  img[alt="cobra kai logo"] {
+    left: -100px;
+    top: 400px;
+  }
+  img[alt="disney logo"] {
+    left: 500px;
+    top: 0px;
+  }
+  img[alt="duct logo"] {
+    left: 50px;
+    top: 400px;
+  }
+  img[alt="elite logo"] {
+    left: 0px;
+    top: 300px;
+  } 
+  img[alt="luke diner mug"] {
+    left: 30px;
+    top: 380px;
+  } 
+  img[alt="mockingjay pin"] {
+    left: 400px;
+    top: 80px;
+  } 
+  img[alt="julie and the phantoms logo"] {
+    left: 180px;
+    top: 100px;
+  } img[alt="aliens in a car"] {
+    left: 250;
+    top: 400px;
+  } img[alt="angel in a cloud"] {
+    left: 450px;
+    top: 550px;
+  } img[alt="lighting"] {
+    left: 75px;
+    top: 275px;
+  }
+</style>
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+  <img src="cobra_kai.gif" alt="cobra kai logo">
+  <img src="disney_logo.gif" alt="disney logo">
+  <img src="ducttape.gif" alt="duct tape">
+  <img src="elite_logo.gif" alt="elite logo">
+  <img src="gilmore_girls_lukes.gif" alt="lukes diner mug">
+  <img src="hunger_games_pin.gif" alt="mockingjay pin">
+  <img src="jatp_logo.gif" alt="julie and the phantoms logo">
+  <img src="lighting.gif" alt="lighting">
+  <img src="lisa_frank_alien_car.gif" alt="aliens in a car">
+  <img src="lisa_frank_angle.gif" alt="angel in a cloud">
+</body>
