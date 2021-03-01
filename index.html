@@ -1,5 +1,79 @@
-<style>
-  body {
+<script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+
+<script>
+  
+  /* to give each gif properties to drop by and show 
+  */
+  let cobra_kai;
+  let disney_logo;
+  let ducttape;
+  let elitelogo;
+  let gilmore_girls_lukes;
+  let hunger_games_pin;
+  let jatp_logo;
+  let lisa_frank_alien_car;
+  let lisa_frank_angle;
+  let gifs = [];
+  let gifDrop = [];
+  
+  class gifDrop {
+    constructor(g){
+      this.x = random(windowWidth);
+      this.y = 0;
+      this.r = random(50, 100);
+      this.gif = g;
+      this.yspeed = random(4,10);
+    }
+    fall(){
+      if (this.y < windowHeight){
+        this.y = this.y + this.yspeed;
+      }
+    }
+    
+    show(){
+     image(this.gif, this.x, this.y. this.r, this.r);
+    }
+
+  }
+  
+    function preload(){
+    cobra_kai = loadImage('cobra_kai.gif');
+    disney_logo = loadImage('disney_log.gif');
+    ducttape = loadImage('ducttape.gif');
+    elitelogo = loadImage('elitelogo');
+    gilmore_girls_lukes = loadImage('gilmore_girls_lukes.gif');
+    hunger_games_pin = loadImage('hunger_games_pin.gif');
+    jatp_logo = loadImage('jatp_logo.gif');
+    lisa_frank_alien_car = loadImage('lisa_frank_alien_car.gif');
+    lisa_frank_angle = loadImage('lisa_frank_angle.gif');
+    gifs = [cobra_kai, disney_logo, ducttape, elitelogo
+           gilmore_girls_lukes, jatp_logo,
+           lisafrank_alien_car, lisa_frank_angle];
+  }
+  
+  // p5.js stuff
+  function setup() {
+    createCanvas(windowWidth, windowHeight, WEBGL);
+    for (let i = 0, i < 20; i++){
+      let newgif = random(gifs)
+      let gdrop = new gifDrop(newgif);
+      gifDrop.push(gdrop); 
+    }
+    background(0);
+  }
+  
+  
+  function draw() {
+    for(int i = 0; i < gifDrop.length; i++){
+      gifDrop[i].fall();
+      gifDrop[i].show();
+    }
+  }
+</script>
+
+
+<!-- <style> -->
+<!-- /*   body {
     background-color: black;
     background-image: url(staticbackground.gif);
   }
@@ -47,20 +121,21 @@
   img[alt="pc"] {
     left: calc(50vw + 10px);
     top: 83px;
-  }
+  } 
+*/ -->
   
-</style>
-<body>
-<!--   <img src="tv.gif" alt="tv">
-  <img src="headphones.gif" alt="headphones">
-  <img src="at.gif" alt="at">
-  <img src="spiral.gif" alt="spiral">
-  <img src="genie.gif" alt="genie">
-  <img src="cd.gif" alt="cd">
-  <img src="good-luck-pc.gif" alt="pc">
-  <img src="hour-glass.gif" alt="hour-glass">
-  <img src="fire-works.gif" alt="fire-works">
-  <img src="heart.gif" alt="heart"> -->
+<!-- /* </style> -->
+<!-- <body> */ -->
+<!--   <img src="cobra_kai.gif" alt="cobra kai logo">
+  <img src="disney_logo.gif" alt="disney logo">
+  <img src="ducttape.gif" alt="duct tape">
+  <img src="elite_logo.gif" alt="elite logo">
+  <img src="gilmore_girls_lukes.gif" alt="lukes dinner mug">
+  <img src="hunger_games_pin.gif" alt="mockingjay pin">
+  <img src="jatp_logo.gif" alt="julie and the phantoms logo">
+  <img src="lighting.gif" alt="lighting">
+  <img src="lisa_frank_alien_car.gif" alt="aliens in a car">
+  <img src="lisa_frank_angle.gif" alt="angel in a cloud">
 
   <section class="main">
     <h1>Welcome To My Home Page</h1>
@@ -69,7 +144,7 @@
       You can also check out my other home page
       <a href="http://nickbriz.com" target="_blank">here</a>!
     </p>
-  </section>
+  </section> -->
 
 <!--   <section class="party">
     <img src="dancing-spiderman.gif" alt="dancing spiderman">
@@ -78,4 +153,4 @@
     <img src="dancing-robot.gif" alt="dancing robot">
     <img src="dancing-girl.gif" alt="a dancing girl">
   </section> -->
-</body>
+<!-- </body> -->
