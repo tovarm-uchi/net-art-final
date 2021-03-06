@@ -38,9 +38,9 @@
     
     fall() {
       this.y = this.y + this.yspeed;
-      if (this.y > window.innerHeight) {
+      if (this.y > window.innerHeight - this.img.height) {
         this.y = Math.random() * -500 - 100
-        this.x = Math.random() * 100 + 75
+        this.x = Math.random() * window.innerWidth
         this.hide()
       } else{
         this.show()
@@ -92,7 +92,6 @@
         let d = new Drop(imgs[i])
         d.show()
         drops.push(d)
-        
       }
   })
 
