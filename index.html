@@ -38,7 +38,7 @@
     
     fall() {
       this.y = this.y + this.yspeed;
-      if (this.y > window.innerHeight - this.img.height) {
+      if (this.y > window.innerHeight) {
         this.y = Math.random() * -500 - 100
         this.x = Math.random() * window.innerWidth
         this.hide()
