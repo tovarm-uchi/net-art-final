@@ -1,16 +1,52 @@
 <style>
   body {
-    margin: 0;
-    background: url(staticbackground.gif)
+    margin: 20px;
+    background: url(staticbackground.gif);
   }
-  .test-button {
-    display: block;
-    margin: 50px auto;
+  .years{
+    display: flex;
+    justify-content: space-around;
+  }
+  .cats{
+    display: flex;
+    justify-content: space-around;
+  }
+  .stop{
+    display: flex;
+    justify-content: center;
+  }
+  .year-button {
+    border: 8px inset pink;
+    padding: 15px 25px;
+    background-image: url(triangles.gif);
+    background-position: center;
+    background-size: cover;
+    
+    color: pink;
+    font-size: 24px;
+    cursor: pointer;
   }
 </style>
 
 <body>
-  <button class="test-button">click me</button>
+  <div class="years">
+    <button class="year-button">2000</button>
+    <button class="year-button">2005</button>
+    <button class="year-button">2010</button>
+    <button class="year-button">2015</button>
+    <button class="year-button">2020</button>
+  </div>
+  <div class="cats">
+    <button class="cat-button">movies</button>
+    <button class="cat-button">tv</button>
+    <button class="cat-button">books</button>
+    <button class="cat-button">trends</button>
+  </div>
+   <div class="stop">
+     <button class="stop-button">stop</button>
+  </div>
+
+
 </body>
 
 <script>
