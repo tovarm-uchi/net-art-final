@@ -3,20 +3,23 @@
     margin: 20px;
     background: url(staticbackground.gif);
   }
-  .years{
+
+  .years {
     display: flex;
     justify-content: space-around;
   }
-  .cats{
+
+  .cats {
     display: flex;
     justify-content: space-around;
   }
-  .stop{
+
+  .stop {
     display: flex;
     justify-content: center;
   }
-  
-  .year{
+
+  .year {
     padding: 5px 5px;
     background-position: center;
     background-size: cover;
@@ -26,38 +29,38 @@
     font-weight: bold;
     cursor: pointer;
   }
-  
+
   #y2000 {
     border: 5px pink;
     background-image: url(y2000bg.jpg);
   }
-  
+
   #y2005 {
     border: 5px #183751;
     background-image: url(y2005bg.jpg);
   }
+
   #y2010 {
     border: 5px hsl(55, 100%, 61%);
     background-image: url(y2010bg.jpg);
   }
+
   #y2015 {
     border: 5px hsl(232, 32%, 26%);
     background-image: url(y2015bg.jpg);
   }
+
   #y2020 {
     border: 5px hsl(120, 20%, 70%);
     background-image: url(y2020bkg.jpg);
     font-size: 25px;
   }
-  
+
   .cat {
     cursor: pointer;
     width: 75px;
     border-radius: 75px;
   }
-
-  
-
 </style>
 
 <body>
@@ -88,8 +91,8 @@
       this.year = yr
       this.cat = cat
     }
-    
-    createImgElement(g){
+
+    createImgElement(g) {
       this.img = document.createElement('img')
       this.img.src = g
       this.img.style.width = `${this.r}px`
@@ -99,15 +102,14 @@
       this.img.style.display = 'none' // hide by default
       document.body.appendChild(this.img)
     }
-    
-    
+
     fall() {
       this.y = this.y + this.yspeed;
       if (this.y > window.innerHeight) {
         this.y = Math.random() * -500 - 100
         this.x = Math.random() * window.innerWidth
         this.hide()
-      } else{
+      } else {
         this.show()
       }
       this.img.style.top = `${this.y}px`
@@ -117,28 +119,30 @@
     show() {
       this.img.style.display = 'block'
     }
-    
-    hide(){
+
+    hide() {
       this.img.style.display = 'none'
     }
 
   }
-  
+
   let drops = []
   const movie_2000 = []
   const movie_2005 = []
   const movie_2010 = ['hunger_games_pin.gif']
   const movie_2015 = []
   const movie_2020 = ['netflix_logo.gif']
-  
+
   const tv_2000 = ['rugrats.gif']
   const tv_2005 = ['disney_logo.gif', 'nick_logo.gif']
   const tv_2010 = ['nick_logo.gif']
-  const tv_2015 = ['RBD_logo.gif', 'gilmore_girls_lukes.gif','elite_logo.gif',
-                   'netflix_logo.gif', 'parks_rec_leslie.gif']
-  const tv_2020 = ['cobra_kai.gif', 'disney_logo.gif','jatp_logo.gif',
-                  'miyagi-do.gif','netflix_logo.gif']
-  
+  const tv_2015 = ['RBD_logo.gif', 'gilmore_girls_lukes.gif', 'elite_logo.gif',
+    'netflix_logo.gif', 'parks_rec_leslie.gif'
+  ]
+  const tv_2020 = ['cobra_kai.gif', 'disney_logo.gif', 'jatp_logo.gif',
+    'miyagi-do.gif', 'netflix_logo.gif'
+  ]
+
   const book_2000 = []
   const book_2005 = ['percy_jackson.gif']
   const book_2010 = ['hunger_games_pin.gif']
@@ -146,245 +150,278 @@
   const book_2020 = ['percy_jackson.gif']
 
   const trend_2000 = ['lisa_frank_alien_car.gif', 'lisa_frank_angle.gif',
-                      'lisa_frank_tigre.gif',]
+    'lisa_frank_tigre.gif',
+  ]
   const trend_2005 = ['motorola_razer.gif']
   const trend_2010 = ['ducttape.gif']
   const trend_2015 = ['pokeman_go.gif']
   const trend_2020 = []
-  
+
   let yr00 = false;
   let yr05 = false;
   let yr10 = false;
   let yr15 = false;
   let yr20 = false;
-  
+
   let movie = false;
   let tv = false;
   let book = false;
   let trend = false;
-  
-  function cat_year(list, yr, c){
-    for (let i =0; i< list.length; i++) {
-        let d = new Drop(list[i],yr, c)
-        drops.push(d)
+
+  function add(list, yr, cat) {
+    for (let i = 0; i < list.length; i++) {
+      let d = new Drop(list[i], yr, cat)
+      drops.push(d)
     }
   }
-  
-  function add_cat(c){
-    if(yr00){
-      cat_year(`${c}_2000`, '2000', c)
-    }
-    if (yr05){
-      cat_year(`${c}_2005`, '2005', c)
-    }
-    if (yr10){
-      cat_year(`${c}_2010`, '2010', c)
-    }
-    if (yr15){
-      cat_year(`${c}_2015`, '2015', c)     
-    }
-    if(yr20){
-      cat_year(`${c}_2020`, '2020', c)
+
+  function remove_cat(cat) {
+    for (let i = 0; i < drops.length; i++) {
+      let d = drops[i]
+      if (d.cat === cat) {
+        d.hide()
+      }
     }
   }
-  
-  function remove_cat(cat){
-    for (let i =0; i< drops.length; i++) {
-        let d = drops[i]
-        if(d.cat === cat){
-          d.hide()
-        }
-    }
-  }
-  
-  function cat_border(c, clicked){
+
+  function cat_border(c, clicked) {
     let catimg = document.querySelector(c)
-    if(clicked){
-      catimg.style.border ="5px ridge hsla(175, 79%, 79%, 0.83)";
+    if (clicked) {
+      catimg.style.border = "5px ridge hsla(175, 79%, 79%, 0.83)";
     } else {
       catimg.style.border = "";
     }
   }
-  
+
   document.querySelector('#cmov')
     .addEventListener('click', () => {
       movie = !movie;
-      if(!movie){
+      if (!movie) {
         remove_cat('movie')
       } else {
-        add_cat('movie')
+        if (yr00) {
+          add(movie_2000, '2000', 'movie')
+        }
+        if (yr05) {
+          add(movie_2005, '2005', 'movie')
+        }
+        if (yr10) {
+          add(movie_2010, '2010', 'movie')
+        }
+        if (yr15) {
+          add(movie_2015, '2015', 'movie')
+        }
+        if (yr20) {
+          add(movie_2020, '2020', 'movie')
+        }
       }
       cat_border('#cmov', movie)
-  })
-  
+    })
+
   document.querySelector('#ctv')
     .addEventListener('click', () => {
       tv = !tv;
-      if(!tv){
+      if (!tv) {
         remove_cat('tv')
-      } else{
-        add_cat('tv')
+      } else {
+        if (yr00) {
+          add(tv_2000, '2000', 'tv')
+        }
+        if (yr05) {
+          add(tv_2005, '2005', 'tv')
+        }
+        if (yr10) {
+          add(tv_2010, '2010', 'tv')
+        }
+        if (yr15) {
+          add(tv_2015, '2015', 'tv')
+        }
+        if (yr20) {
+          add(tv_2020, '2020', 'tv')
+        }
       }
       cat_border('#ctv', tv)
-  })
-  
+    })
+
   document.querySelector('#cbks')
     .addEventListener('click', () => {
       book = !book;
-      if(!book){
+      if (!book) {
         remove_cat('book')
-      } else{
-        add_cat('book')
+      } else {
+        if (yr00) {
+          add(book_2000, '2000', 'book')
+        }
+        if (yr05) {
+          add(book_2005, '2005', 'book')
+        }
+        if (yr10) {
+          add(book_2010, '2010', 'book')
+        }
+        if (yr15) {
+          add(book_2015, '2015', 'book')
+        }
+        if (yr20) {
+          add(book_2020, '2020', 'book')
+        }
       }
       cat_border('#cbks', book)
-  })
-  
+    })
+
   document.querySelector('#ctrd')
     .addEventListener('click', () => {
       trend = !trend;
-      if(!trend){
+      if (!trend) {
         remove_cat('trend')
       } else {
-        add_cat('trend')
+        if (yr00) {
+          add(trend_2000, '2000', 'trend')
+        }
+        if (yr05) {
+          add(trend_2005, '2005', 'trend')
+        }
+        if (yr10) {
+          add(trend_2010, '2010', 'trend')
+        }
+        if (yr15) {
+          add(trend_2015, '2015', 'trend')
+        }
+        if (yr20) {
+          add(trend_2020, '2020', 'trend')
+        }
       }
       cat_border('#ctrd', trend)
-  })
-  
-  function add(list, yr, cat){
-    for (let i =0; i< list.length; i++) {
-        let d = new Drop(list[i],yr,cat)
-        drops.push(d)
+    })
+
+  function remove(year) {
+    for (let i = 0; i < drops.length; i++) {
+      let d = drops[i]
+      if (d.year === year) {
+        d.hide()
+      }
     }
   }
-  
-  function remove(year){
-    for (let i =0; i< drops.length; i++) {
-        let d = drops[i]
-        if(d.year === year){
-          d.hide()
-        }
-    }
-  }
-  function year_border(y, clicked){
+
+  function year_border(y, clicked) {
     let yrbttn = document.querySelector(y)
-    if(clicked){
-      yrbttn.style.borderStyle= 'ridge';
+    if (clicked) {
+      yrbttn.style.borderStyle = 'ridge';
     } else {
-      yrbttn.style.borderStyle= '';
+      yrbttn.style.borderStyle = '';
     }
   }
-  
+
   document.querySelector('#y2000')
     .addEventListener('click', () => {
-    yr00 = !yr00
-    if (yr00) {
-      if (movie) {
-        add(movie_2000, '2000', 'movie')
+      yr00 = !yr00
+      if (yr00) {
+        if (movie) {
+          add(movie_2000, '2000', 'movie')
+        }
+        if (tv) {
+          add(tv_2000, '2000', 'tv')
+        }
+        if (book) {
+          add(book_2000, '2000', 'book')
+        }
+        if (trend) {
+          add(trend_2000, '2000', 'trend')
+        }
+      } else {
+        remove('2000')
       }
-      if (tv) {
-        add(tv_2000, '2000', 'tv')
-      }
-      if (book) {
-        add(book_2000, '2000', 'book')
-      }
-      if (trend) {
-        add(trend_2000, '2000', 'trend')
-      }
-    } else {
-      remove('2000')
-    }
-    year_border('#y2000', yr00)
-  })
- 
+      year_border('#y2000', yr00)
+    })
+
   document.querySelector('#y2005')
     .addEventListener('click', () => {
-    yr05 = !yr05
-    if (yr05) {
-      if (movie) {
-        add(movie_2005, '2005', 'movie')
+      yr05 = !yr05
+      if (yr05) {
+        if (movie) {
+          add(movie_2005, '2005', 'movie')
+        }
+        if (tv) {
+          add(tv_2005, '2005', 'tv')
+        }
+        if (book) {
+          add(book_2005, '2005', 'book')
+        }
+        if (trend) {
+          add(trend_2005, '2005', 'trend')
+        }
+      } else {
+        remove('2005')
       }
-      if (tv) {
-        add(tv_2005, '2005', 'tv')
-      }
-      if (book) {
-        add(book_2005, '2005', 'book')
-      }
-      if (trend) {
-        add(trend_2005, '2005', 'trend')
-      }
-    }else {
-      remove('2005')
-    }
-    year_border('#y2005', yr05)
-  })
-  
+      year_border('#y2005', yr05)
+    })
+
   document.querySelector('#y2010')
     .addEventListener('click', () => {
-    yr10 = !yr10
-    if (yr10) {
-      if (movie) {
-        add(movie_2010, '2010', 'movie')
+      yr10 = !yr10
+      if (yr10) {
+        if (movie) {
+          add(movie_2010, '2010', 'movie')
+        }
+        if (tv) {
+          add(tv_2010, '2010', 'tv')
+        }
+        if (book) {
+          add(book_2010, '2010', 'book')
+        }
+        if (trend) {
+          add(trend_2010, '2010', 'trend')
+        }
+      } else {
+        remove('2010')
       }
-      if (tv) {
-        add(tv_2010, '2010', 'tv')
-      }
-      if (book) {
-        add(book_2010, '2010', 'book')
-      }
-      if (trend) {
-        add(trend_2010, '2010', 'trend')
-      }
-    }else {
-      remove('2010')
-    }
-    year_border('#y2010', yr10)
-  })
-  
+      year_border('#y2010', yr10)
+    })
+
   document.querySelector('#y2015')
     .addEventListener('click', () => {
-    yr15 = !yr15
-    if (yr15) {
-      if (movie) {
-        add(movie_2015,'2015', 'movie')
+      yr15 = !yr15
+      if (yr15) {
+        if (movie) {
+          add(movie_2015, '2015', 'movie')
+        }
+        if (tv) {
+          add(tv_2015, '2015', 'tv')
+        }
+        if (book) {
+          add(book_2015, '2015', 'book')
+        }
+        if (trend) {
+          add(trend_2015, '2015', 'trend')
+        }
+      } else {
+        remove('2015')
       }
-      if (tv) {
-        add(tv_2015,'2015', 'tv')
-      }
-      if (book) {
-        add(book_2015,'2015', 'book')
-      }
-      if (trend) {
-        add(trend_2015,'2015', 'trend')
-      }
-    } else {
-      remove('2015')
-    }
-    year_border('#y2015', yr15)
-  })
-  
+      year_border('#y2015', yr15)
+    })
+
   document.querySelector('#y2020')
     .addEventListener('click', () => {
-    yr20 = !yr20
-    if (yr20) {
-      if (movie) {
-        add(movie_2020, '2020', 'movie')
+      yr20 = !yr20
+      if (yr20) {
+        if (movie) {
+          add(movie_2020, '2020', 'movie')
+        }
+        if (tv) {
+          add(tv_2020, '2020', 'tv')
+        }
+        if (book) {
+          add(book_2020, '2020', 'book')
+        }
+        if (trend) {
+          add(trend_2020, '2020', 'trend')
+        }
+      } else {
+        remove('2020')
       }
-      if (tv) {
-        add(tv_2020, '2020', 'tv')
-      }
-      if (book) {
-        add(book_2020, '2020', 'book')
-      }
-      if (trend) {
-        add(trend_2020, '2020', 'trend')
-      }
-    }else {
-      remove('2020')
-    }
-    year_border('#y2020', yr20)
-  })
-  
-  
+      year_border('#y2020', yr20)
+    })
+
+
 
   function draw() {
     requestAnimationFrame(draw)
