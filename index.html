@@ -122,7 +122,7 @@
 
   }
   
-  const drops = []
+  let drops = []
   const mov_2000 = []
   const mov_2005 = []
   const mov_2010 = ['hunger_games_pin.gif']
@@ -188,12 +188,16 @@
     }
   }
   
-  // function removeList(list){
-  //   let remove = []
-  //   for (let i =0; i< drop.length; i++) {
-  //       let d = drop[i]
-  //   }
-  // }
+  function remove(year){
+    let removed = []
+    for (let i =0; i< drops.length; i++) {
+        let d = drops[i]
+        if(d.year !== year){
+          removed.push(d)
+        }
+    }
+    drops = removed
+  }
   
   document.querySelector('#y2000')
     .addEventListener('click', () => {
@@ -211,6 +215,8 @@
       if (trend) {
         add(trend_2000, '2000', 'trend')
       }
+    } else {
+      remove('2000')
     }
   })
  
@@ -230,6 +236,8 @@
       if (trend) {
         add(trend_2005, '2005', 'trend')
       }
+    }else {
+      remove('2005')
     }
   })
   
@@ -249,6 +257,8 @@
       if (trend) {
         add(trend_2010, '2010', 'trend')
       }
+    }else {
+      remove('2005')
     }
   })
   
@@ -268,6 +278,8 @@
       if (trend) {
         add(trend_2015,'2015', 'trend')
       }
+    } else {
+      remove('2015')
     }
   })
   
@@ -287,6 +299,8 @@
       if (trend) {
         add(trend_2020, '2020', 'trend')
       }
+    }else {
+      remove('2020')
     }
   })
   
