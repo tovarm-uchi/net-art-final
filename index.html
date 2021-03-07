@@ -68,7 +68,7 @@
   </div>
   <div class="cats">
     <img class="cat" id="cmov" src="movieicon.png" alt="movies">
-    <img class="cat" id="ctv" src="tvicon.png" alt= "tv">
+    <img class="cat" id="ctv" src="tvicon.png" alt="tv">
     <img class="cat" id="cbks" src="bookicon.png" alt="books">
     <img class="cat" id="ctrd" src="trendicon.png" alt="trends">
   </div>
@@ -148,16 +148,16 @@
   const trend_2015 = ['pokeman_go.gif']
   const trend_2020 = []
   
-  let yr00 = False;
-  let yr05 = False;
-  let yr10 = False;
-  let yr15 = False;
-  let yr20 = False;
+  let yr00 = false;
+  let yr05 = false;
+  let yr10 = false;
+  let yr15 = false;
+  let yr20 = false;
   
-  let movie = False;
-  let tv = False;
-  let book = False;
-  let trend = False;
+  let movie = false;
+  let tv = false;
+  let book = false;
+  let trend = false;
   
   document.querySelector('#cmov')
     .addEventListener('click', () => {
@@ -179,7 +179,7 @@
       trend = !trend;
   })
   
-  function addList(list){
+  function add(list){
     for (let i =0; i< list.length; i++) {
         let d = new Drop(list[i])
         drops.push(d)
@@ -196,17 +196,17 @@
   document.querySelector('y2000')
     .addEventListener('click', () => {
     yr00 = !yr00
-    if yr00 {
-      if movie {
+    if (yr00) {
+      if (movie) {
         add(mov_2000)
       }
-      if tv {
+      if (tv) {
         add(tv_2000)
       }
-      if book {
+      if (book) {
         add(book_2000)
       }
-      if trend {
+      if (trend) {
         add(trend_2000)
       }
     }
@@ -215,17 +215,17 @@
   document.querySelector('y2005')
     .addEventListener('click', () => {
     yr05 = !yr05
-    if yr05 {
-      if movie {
+    if (yr05) {
+      if (movie) {
         add(mov_2005)
       }
-      if tv {
+      if (tv) {
         add(tv_2005)
       }
-      if book {
+      if (book) {
         add(book_2005)
       }
-      if trend {
+      if (trend) {
         add(trend_2005)
       }
     }
@@ -234,17 +234,17 @@
   document.querySelector('y2010')
     .addEventListener('click', () => {
     yr10 = !yr10
-    if yr10 {
-      if movie {
+    if (yr10) {
+      if (movie) {
         add(mov_2010)
       }
-      if tv {
+      if (tv) {
         add(tv_2010)
       }
-      if book {
+      if (book) {
         add(book_2010)
       }
-      if trend {
+      if (trend) {
         add(trend_2010)
       }
     }
@@ -253,17 +253,17 @@
   document.querySelector('y2015')
     .addEventListener('click', () => {
     yr15 = !yr15
-    if yr15 {
-      if movie {
+    if (yr15) {
+      if (movie) {
         add(mov_2015)
       }
-      if tv {
+      if (tv) {
         add(tv_2015)
       }
-      if book {
+      if (book) {
         add(book_2015)
       }
-      if trend {
+      if (trend) {
         add(trend_2015)
       }
     }
@@ -272,17 +272,17 @@
   document.querySelector('y2020')
     .addEventListener('click', () => {
     yr20 = !yr20
-    if yr20 {
-      if movie {
+    if (yr20) {
+      if (movie) {
         add(mov_2020)
       }
-      if tv {
+      if (tv) {
         add(tv_2020)
       }
-      if book {
+      if (book) {
         add(book_2020)
       }
-      if trend {
+      if (trend) {
         add(trend_2020)
       }
     }
