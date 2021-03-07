@@ -231,6 +231,14 @@
         }
     }
   }
+  function year_border(y, clicked){
+    let yrbttn = document.querySelector(y)
+    if(clicked){
+      yrbttn.style.borderStyle= 'ridge';
+    } else {
+      yrbttn.style.borderStyle= 'double';
+    }
+  }
   
   document.querySelector('#y2000')
     .addEventListener('click', () => {
@@ -251,6 +259,7 @@
     } else {
       remove('2000')
     }
+    year_border('#y2000', yr00)
   })
  
   document.querySelector('#y2005')
@@ -272,6 +281,7 @@
     }else {
       remove('2005')
     }
+    year_border('#y2005', yr05)
   })
   
   document.querySelector('#y2010')
@@ -293,6 +303,7 @@
     }else {
       remove('2005')
     }
+    year_border('#y2010', yr10)
   })
   
   document.querySelector('#y2015')
@@ -314,6 +325,7 @@
     } else {
       remove('2015')
     }
+    year_border('#y2015', yr15)
   })
   
   document.querySelector('#y2020')
@@ -335,6 +347,7 @@
     }else {
       remove('2020')
     }
+    year_border('#y2020', yr20)
   })
   
   
