@@ -77,12 +77,14 @@
 <script>
   /* to give each gif properties to drop by and show */
   class Drop {
-    constructor(g) {
+    constructor(g, yr, cat) {
       this.x = Math.random() * window.innerWidth
       this.y = Math.random() * -500 - 100
       this.r = Math.random() * 100 + 75
       this.yspeed = Math.random() * 2 + 1
       this.createImgElement(g)
+      this.year = yr
+      this.cat = cat
     }
     
     createImgElement(g){
@@ -179,10 +181,10 @@
       trend = !trend;
   })
   
-  function add(list){
+  function add(list, yr, cat){
     for (let i =0; i< list.length; i++) {
         let d = new Drop(list[i])
-        drops.push(d)
+        drops.push(d, yr, cat)
     }
   }
   
