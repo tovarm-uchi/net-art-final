@@ -123,62 +123,172 @@
   const drops = []
   const mov_2000 = []
   const mov_2005 = []
-  const mov_2010 = ['hunger_games_pin.gif',
-]
+  const mov_2010 = ['hunger_games_pin.gif']
   const mov_2015 = []
-  const mov_2020 = []
+  const mov_2020 = ['netflix_logo.gif']
   
-  const tv_2000 = []
-  const tv_2005 = ['disney_logo.gif',
-]
-  const tv_2010 = []
-  const tv_2015 = ['RBD_logo.gif', 'gilmore_girls_lukes.gif','elite_logo.gif'
-                  ]
-  const tv_2020 = ['cobra_kai.gif', 'disney_logo.gif',
-                  'jatp_logo.gif',
-
-]
+  const tv_2000 = ['rugrats.gif']
+  const tv_2005 = ['disney_logo.gif', 'nick_logo.gif']
+  const tv_2010 = ['nick_logo.gif']
+  const tv_2015 = ['RBD_logo.gif', 'gilmore_girls_lukes.gif','elite_logo.gif',
+                   'netflix_logo.gif', 'parks_rec_leslie.gif']
+  const tv_2020 = ['cobra_kai.gif', 'disney_logo.gif','jatp_logo.gif',
+                  'miyagi-do.gif','netflix_logo.gif']
   
   const book_2000 = []
-  const book_2005 = []
-  const book_2010 = ['hunger_games_pin.gif',
-]
+  const book_2005 = ['percy_jackson.gif']
+  const book_2010 = ['hunger_games_pin.gif']
   const book_2015 = []
-  const book_2020 = []
-  
-  const trend_2000 = []
-  const trend_2005 = []
-  const trend_2010 = ['ducttape.gif',]
-  const trend_2015 = []
+  const book_2020 = ['percy_jackson.gif']
+
+  const trend_2000 = ['lisa_frank_alien_car.gif', 'lisa_frank_angle.gif',
+                      'lisa_frank_tigre.gif',]
+  const trend_2005 = ['motorola_razer.gif']
+  const trend_2010 = ['ducttape.gif']
+  const trend_2015 = ['pokeman_go.gif']
   const trend_2020 = []
-
-
-  const imgs = [
-    'lighting.gif',
-    'lisa_frank_alien_car.gif',
-    'lisa_frank_angle.gif',
-    'lisa_frank_tigre.gif',
-    'miyagi-do.gif',
-    'motorola_razer.gif',
-    'netflix_logo.gif',
-    'nick_logo.gif',
-    'parks_rec_leslie.gif',
-    'percy_jackson.gif',
-    'pokeman_go.gif',
-    'rugrats.gif',
-    'send_netflix_recs.gif',
-    'triangles.gif'
-  ]
-
   
-  document.querySelector('.test-button')
+  let yr00 = False;
+  let yr05 = False;
+  let yr10 = False;
+  let yr15 = False;
+  let yr20 = False;
+  
+  let movie = False;
+  let tv = False;
+  let book = False;
+  let trend = False;
+  
+  document.querySelector('#cmov')
     .addEventListener('click', () => {
-      for (let i =0; i< imgs.length; i++) {
-        let d = new Drop(imgs[i])
-        d.show()
-        drops.push(d)
-      }
+      movie = !movie;
   })
+  
+  document.querySelector('#ctv')
+    .addEventListener('click', () => {
+      tv = !tv;
+  })
+  
+  document.querySelector('#cbks')
+    .addEventListener('click', () => {
+      book = !book;
+  })
+  
+  document.querySelector('#ctrd')
+    .addEventListener('click', () => {
+      trend = !trend;
+  })
+  
+  function addList(list){
+    for (let i =0; i< list.length; i++) {
+        let d = new Drop(list[i])
+        drops.push(d)
+    }
+  }
+  
+  // function removeList(list){
+  //   let remove = []
+  //   for (let i =0; i< drop.length; i++) {
+  //       let d = drop[i]
+  //   }
+  // }
+  
+  document.querySelector('y2000')
+    .addEventListener('click', () => {
+    yr00 = !yr00
+    if yr00 {
+      if movie {
+        add(mov_2000)
+      }
+      if tv {
+        add(tv_2000)
+      }
+      if book {
+        add(book_2000)
+      }
+      if trend {
+        add(trend_2000)
+      }
+    }
+  })
+ 
+  document.querySelector('y2005')
+    .addEventListener('click', () => {
+    yr05 = !yr05
+    if yr05 {
+      if movie {
+        add(mov_2005)
+      }
+      if tv {
+        add(tv_2005)
+      }
+      if book {
+        add(book_2005)
+      }
+      if trend {
+        add(trend_2005)
+      }
+    }
+  })
+  
+  document.querySelector('y2010')
+    .addEventListener('click', () => {
+    yr10 = !yr10
+    if yr10 {
+      if movie {
+        add(mov_2010)
+      }
+      if tv {
+        add(tv_2010)
+      }
+      if book {
+        add(book_2010)
+      }
+      if trend {
+        add(trend_2010)
+      }
+    }
+  })
+  
+  document.querySelector('y2015')
+    .addEventListener('click', () => {
+    yr15 = !yr15
+    if yr15 {
+      if movie {
+        add(mov_2015)
+      }
+      if tv {
+        add(tv_2015)
+      }
+      if book {
+        add(book_2015)
+      }
+      if trend {
+        add(trend_2015)
+      }
+    }
+  })
+  
+  document.querySelector('y2020')
+    .addEventListener('click', () => {
+    yr20 = !yr20
+    if yr20 {
+      if movie {
+        add(mov_2020)
+      }
+      if tv {
+        add(tv_2020)
+      }
+      if book {
+        add(book_2020)
+      }
+      if trend {
+        add(trend_2020)
+      }
+    }
+  })
+  
+  
 
   function draw() {
     requestAnimationFrame(draw)
