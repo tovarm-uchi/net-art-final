@@ -161,24 +161,47 @@
   let book = false;
   let trend = false;
   
+  function remove_cat(cat){
+    let removed = []
+    for (let i =0; i< drops.length; i++) {
+        let d = drops[i]
+        if(d.cat !== cat){
+          removed.push(d)
+        }
+    }
+    drops = removed
+  }
+  
   document.querySelector('#cmov')
     .addEventListener('click', () => {
       movie = !movie;
+      if(!movie){
+        remove_cat('movie')
+      }
   })
   
   document.querySelector('#ctv')
     .addEventListener('click', () => {
       tv = !tv;
+      if(!tv){
+        remove_cat('tv')
+      }
   })
   
   document.querySelector('#cbks')
     .addEventListener('click', () => {
       book = !book;
+      if(!book){
+        remove_cat('book')
+      }
   })
   
   document.querySelector('#ctrd')
     .addEventListener('click', () => {
       trend = !trend;
+      if(!trend){
+        remove_cat('trend')
+      }
   })
   
   function add(list, yr, cat){
