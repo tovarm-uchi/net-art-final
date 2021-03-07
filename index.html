@@ -125,11 +125,11 @@
   }
   
   let drops = []
-  const mov_2000 = []
-  const mov_2005 = []
-  const mov_2010 = ['hunger_games_pin.gif']
-  const mov_2015 = []
-  const mov_2020 = ['netflix_logo.gif']
+  const movie_2000 = []
+  const movie_2005 = []
+  const movie_2010 = ['hunger_games_pin.gif']
+  const movie_2015 = []
+  const movie_2020 = ['netflix_logo.gif']
   
   const tv_2000 = ['rugrats.gif']
   const tv_2005 = ['disney_logo.gif', 'nick_logo.gif']
@@ -163,6 +163,31 @@
   let book = false;
   let trend = false;
   
+  function cat_year(list, yr, c){
+    for (let i =0; i< list.length; i++) {
+        let d = new Drop(list[i],yr, c)
+        drops.push(d)
+    }
+  }
+  
+  function add_cat(c){
+    if(yr00){
+      cat_year(`${c}_2000`, '2000', c)
+    }
+    if (yr05){
+      cat_year(`${c}_2005`, '2005', c)
+    }
+    if (yr10){
+      cat_year(`${c}_2010`, '2010', c)
+    }
+    if (yr15){
+      cat_year(`${c}_2015`, '2015', c)     
+    }
+    if(yr20){
+      cat_year(`${c}_2020`, '2020', c)
+    }
+  }
+  
   function remove_cat(cat){
     for (let i =0; i< drops.length; i++) {
         let d = drops[i]
@@ -186,6 +211,8 @@
       movie = !movie;
       if(!movie){
         remove_cat('movie')
+      } else {
+        add_cat('movie')
       }
       cat_border('#cmov', movie)
   })
@@ -195,6 +222,8 @@
       tv = !tv;
       if(!tv){
         remove_cat('tv')
+      } else{
+        add_cat('tv')
       }
       cat_border('#ctv', tv)
   })
@@ -204,6 +233,8 @@
       book = !book;
       if(!book){
         remove_cat('book')
+      } else{
+        add_cat('book')
       }
       cat_border('#cbks', book)
   })
@@ -213,6 +244,8 @@
       trend = !trend;
       if(!trend){
         remove_cat('trend')
+      } else {
+        add_cat('trend')
       }
       cat_border('#ctrd', trend)
   })
@@ -237,7 +270,7 @@
     if(clicked){
       yrbttn.style.borderStyle= 'ridge';
     } else {
-      yrbttn.style.borderStyle= 'double';
+      yrbttn.style.borderStyle= '';
     }
   }
   
@@ -246,7 +279,7 @@
     yr00 = !yr00
     if (yr00) {
       if (movie) {
-        add(mov_2000, '2000', 'movie')
+        add(movie_2000, '2000', 'movie')
       }
       if (tv) {
         add(tv_2000, '2000', 'tv')
@@ -268,7 +301,7 @@
     yr05 = !yr05
     if (yr05) {
       if (movie) {
-        add(mov_2005, '2005', 'movie')
+        add(movie_2005, '2005', 'movie')
       }
       if (tv) {
         add(tv_2005, '2005', 'tv')
@@ -290,7 +323,7 @@
     yr10 = !yr10
     if (yr10) {
       if (movie) {
-        add(mov_2010, '2010', 'movie')
+        add(movie_2010, '2010', 'movie')
       }
       if (tv) {
         add(tv_2010, '2010', 'tv')
@@ -312,7 +345,7 @@
     yr15 = !yr15
     if (yr15) {
       if (movie) {
-        add(mov_2015,'2015', 'movie')
+        add(movie_2015,'2015', 'movie')
       }
       if (tv) {
         add(tv_2015,'2015', 'tv')
@@ -334,7 +367,7 @@
     yr20 = !yr20
     if (yr20) {
       if (movie) {
-        add(mov_2020, '2020', 'movie')
+        add(movie_2020, '2020', 'movie')
       }
       if (tv) {
         add(tv_2020, '2020', 'tv')
