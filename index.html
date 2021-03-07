@@ -162,14 +162,12 @@
   let trend = false;
   
   function remove_cat(cat){
-    let removed = []
     for (let i =0; i< drops.length; i++) {
         let d = drops[i]
-        if(d.cat !== cat){
-          removed.push(d)
+        if(d.cat === cat){
+          d.hide()
         }
     }
-    drops = removed
   }
   
   document.querySelector('#cmov')
@@ -212,14 +210,12 @@
   }
   
   function remove(year){
-    let removed = []
     for (let i =0; i< drops.length; i++) {
         let d = drops[i]
-        if(d.year !== year){
-          removed.push(d)
+        if(d.year === year){
+          d.hide()
         }
     }
-    drops = removed
   }
   
   document.querySelector('#y2000')
