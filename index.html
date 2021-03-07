@@ -168,6 +168,7 @@
   function add(list, yr, cat) {
     for (let i = 0; i < list.length; i++) {
       let d = new Drop(list[i], yr, cat)
+      d.show()
       drops.push(d)
     }
   }
