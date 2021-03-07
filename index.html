@@ -51,10 +51,9 @@
   
   .cat {
     cursor: pointer;
+    width: 75px;
   }
-   #cmov {
-    background-image: url(movieicon.png);
-  }
+
   
 
 </style>
@@ -68,16 +67,11 @@
     <button class="year" id="y2020">2020</button>
   </div>
   <div class="cats">
-    <button class="cat" id="cmov">movies</button>
-    <button class="cat" id="ctv">tv</button>
-    <button class="cat" id="cbks">books</button>
-    <button class="cat" id="ctrd">trends</button>
+    <img class="cat" id="cmov" src="movieicon.png" alt="movies">
+    <img class="cat" id="ctv" src="tvicon.png" alt= "tv">
+    <img class="cat" id="cbks" src="bookicon.png" alt="books">
+    <img class="cat" id="ctrd" src="trendicon.png" alt="trends">
   </div>
-   <div class="stop">
-     <button class="stop-button">stop</button>
-  </div>
-
-
 </body>
 
 <script>
@@ -127,6 +121,13 @@
   }
   
   const drops = []
+  const mov_2000 = []
+  const mov_2005 = []
+  const mov_2010 = []
+  const mov_2015 = []
+  const mov_2020 = []
+
+
   const imgs = [
     'RBD_logo.gif',
     'cobra_kai.gif',
