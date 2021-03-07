@@ -181,6 +181,8 @@
       let d = drops[i]
       if (d.cat !== cat) {
         removed.push(d)
+      } else {
+        d.hide()
       }
     }
     drops = removed
@@ -301,6 +303,8 @@
       let d = drops[i]
       if (d.year !== year) {
         removed.push(d)
+      } else{
+        d.hide()
       }
     }
     drops = removed
