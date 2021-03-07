@@ -176,12 +176,14 @@
   }
 
   function remove_cat(cat) {
+    let removed = []
     for (let i = 0; i < drops.length; i++) {
       let d = drops[i]
-      if (d.cat === cat) {
-        d.hide()
+      if (d.cat !== cat) {
+        removed.push(d)
       }
     }
+    drops = removed
   }
 
   function cat_border(c, clicked) {
@@ -294,12 +296,14 @@
     })
 
   function remove(year) {
+    let removed = []
     for (let i = 0; i < drops.length; i++) {
       let d = drops[i]
-      if (d.year === year) {
-        d.hide()
+      if (d.year !== year) {
+        removed.push(d)
       }
     }
+    drops = removed
   }
 
   function year_border(y, clicked) {
