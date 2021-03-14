@@ -93,23 +93,20 @@
     }
 
     createImgElement(g) {
-      this.img = document.createElement('img')
+      this.div = document.createElement('div')
+      this.div.innerHTML = `
+        <a href="${g.url}" target="_blank">
+          <img src="${g.src}">
+        </a>
+      `
+      document.body.appendChild(this.div)
+      this.img = this.div.querySelector("img")
       this.img.src = g.src
       this.img.style.width = `${this.r}px`
       this.img.style.position = 'absolute'
       this.img.style.left = `${this.x}px`
       this.img.style.top = `${this.y}px`
-      this.img.style.display = 'none' // hide by default
-      // document.body.appendChild(this.img)
-      
-      const div = document.createElement('div')
-      div.innerHTML = `
-        <a href="${g.url}" target="_blank">
-          ${this.img}
-        </a>
-      `
-      document.body.appendChild(div)
-      
+      this.img.style.display = 'none' // hide by default 
     }
 
     fall() {
