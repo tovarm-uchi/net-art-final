@@ -2,7 +2,7 @@
   body {
     margin: 20px;
     background: url(staticbackground.gif);
-    overflow:hidden;
+    overflow: hidden;
   }
 
   .years {
@@ -54,7 +54,6 @@
   #y2020 {
     border: 5px hsl(120, 20%, 70%);
     background-image: url(y2020bkg.jpg);
-    font-size: 25px;
   }
 
   .cat {
@@ -81,7 +80,7 @@
 </body>
 
 <script>
-  /* to give each gif properties to drop by and show */
+  /* to give each gif properties to fall, show and hide */
   class Drop {
     constructor(g, yr, cat) {
       this.x = Math.random() * window.innerWidth
@@ -95,13 +94,22 @@
 
     createImgElement(g) {
       this.img = document.createElement('img')
-      this.img.src = g
+      this.img.src = g.src
       this.img.style.width = `${this.r}px`
       this.img.style.position = 'absolute'
       this.img.style.left = `${this.x}px`
       this.img.style.top = `${this.y}px`
       this.img.style.display = 'none' // hide by default
-      document.body.appendChild(this.img)
+      // document.body.appendChild(this.img)
+      
+      const div = document.createElement('div')
+      div.innerHTML = `
+        <a href="${g.url}" target="_blank">
+          ${this.img}
+        </a>
+      `
+      document.body.appendChild(div)
+      
     }
 
     fall() {
