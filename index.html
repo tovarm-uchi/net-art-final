@@ -87,7 +87,7 @@
       this.x = Math.random() * window.innerWidth
       this.y = Math.random() * -500 - 100
       this.r = Math.random() * 100 + 75
-      this.yspeed = Math.random() * 2 + 1
+      this.yspeed = Math.random() * 2
       this.createImgElement(g)
       this.year = yr
       this.cat = cat
@@ -117,6 +117,7 @@
       if (this.y > window.innerHeight) {
         this.y = Math.random() * -500 - 100
         this.x = Math.random() * (window.innerWidth - this.img.width)
+        this.yspeed = Math.random() * 2
       }
       this.img.style.top = `${this.y}px`
       this.img.style.left = `${this.x}px`
