@@ -113,10 +113,10 @@
       this.y = this.y + this.yspeed;
       if (this.y > window.innerHeight) {
         this.y = Math.random() * -500 - 100
-        this.x = Math.random() * window.innerWidth
+        this.x = Math.random() * (window.innerWidth - this.img.width)
       }
       this.img.style.top = `${this.y}px`
-      this.img.style.right = `${this.x}px`
+      this.img.style.left = `${this.x}px`
     }
 
     show() {
